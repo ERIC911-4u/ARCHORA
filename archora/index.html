@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ARCHORA — Architecture &amp; Interior Design Studio</title>
+  <meta name="description" content="ARCHORA is an interactive 3D architecture and interior design studio. Plan a two-storey house, customize rooms in real time, and save your designs.">
+  <meta name="theme-color" content="#171816">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/build.css">
+  <link rel="stylesheet" href="css/studio.css">
+  <link rel="stylesheet" href="css/workspace.css">
+  <script type="importmap">
+    { "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/"
+    } }
+  </script>
+  <script defer src="vendor/gsap/gsap.min.js"></script>
+  <script defer src="vendor/gsap/ScrollTrigger.min.js"></script>
+</head>
+<body data-layout="default" data-route="">
+  <!-- ===== INTRO VIDEO (16 detik) =====
+       Letakkan video Anda di: archora/assets/intro.mp4 -->
+  <div id="intro-overlay">
+    <video id="intro-video" muted playsinline preload="auto">
+      <source src="assets/images/textures/intro%20(1).mp4" type="video/mp4"> <!-- <== GANTI/TARUH VIDEO MP4 ANDA DI SINI -->
+    </video>
+    <button type="button" id="intro-skip">Skip ›</button>
+  </div>
+  <!-- ===== END INTRO VIDEO ===== -->
+  <a class="skip-link" href="#app-main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#/home" aria-label="ARCHORA, go to Home">ARCHORA</a>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><button type="button" class="site-nav__link site-nav__btn" data-intro-trigger>Intro</button></li>
+          <li><a class="site-nav__link" href="#/home" data-nav="home">Home</a></li>
+          <li><a class="site-nav__link" href="#/studio" data-nav="studio">Studio</a></li>
+          <li><a class="site-nav__link" href="#/projects" data-nav="projects">Projects</a></li>
+          <li><a class="site-nav__link" href="#/my-designs" data-nav="my-designs">My Designs</a></li>
+          <li><a class="site-nav__link" href="#/about" data-nav="about">About</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <button type="button" class="btn btn--primary btn--sm" id="save-design-btn">
+          <span>Save Design</span>
+          <span class="unsaved-dot" id="unsaved-dot" hidden title="Unsaved changes" aria-label="Unsaved changes"></span>
+        </button>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="app-main" id="app-main" tabindex="-1" aria-live="off"></main>
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <noscript><p class="noscript-message">ARCHORA needs JavaScript to run. Please enable JavaScript and reload the page.</p></noscript>
+  <script src="js/intro.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
